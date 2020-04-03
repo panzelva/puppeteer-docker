@@ -1,2 +1,3 @@
 node_modules
-example/screenshots
+package.json
+yarn.lock
