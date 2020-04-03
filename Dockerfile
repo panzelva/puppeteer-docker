@@ -15,10 +15,10 @@ RUN apt-get update \
 RUN yarn add puppeteer@2.1.1 \
     # Add user so we don't need --no-sandbox.
     # same layer as npm install to keep re-chowned files from using up several hundred MBs more space
-    && groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
-    && mkdir -p /home/pptruser/Downloads \
-    && chown -R pptruser:pptruser /home/pptruser \
-    && chown -R pptruser:pptruser /node_modules
+    && groupadd -r pptr && useradd -r -g pptr -G audio,video pptr \
+    && mkdir -p /home/pptr/Downloads \
+    && chown -R pptr:pptr /home/pptr \
+    && chown -R pptr:pptr /node_modules
 
 # Run everything after as non-privileged user.
-USER pptruser
+USER pptr
